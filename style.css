@@ -10,7 +10,7 @@ body {
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: #f0f0f0;
-  width: 85%;
+  width: 90%;
   margin: auto;
 }
 body,
@@ -62,14 +62,6 @@ input:focus {
   justify-content: space-between;
   column-gap: 10px;
 }
-@media (max-width: 668px) {
-  body {
-    width: 90%;
-  }
-  .price-inputs {
-    flex-direction: column;
-  }
-}
 button {
   border: none;
   background-color: #1e6fd9;
@@ -82,9 +74,6 @@ button {
   letter-spacing: 1px;
   transition: 0.3s;
 }
-button:hover {
-  opacity: 0.6;
-}
 .outputs .search-options {
   display: flex;
   column-gap: 10px;
@@ -95,6 +84,9 @@ button:hover {
 #delete-all,
 #delete {
   background-color: red;
+}
+button:hover {
+  background-color: black !important;
 }
 /* table style */
 table {
@@ -115,13 +107,24 @@ table thead th {
 th,
 td {
   padding: 5px;
-}
-tr td,
-tr th {
   border-right: 1px solid #0d65d9;
 }
-
+td,
+#search {
+  text-transform: lowercase;
+}
 tr td:last-child,
 tr th:last-child {
   border-right: none;
+}
+tr td:nth-child(2),
+tr td:nth-child(9) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+tr td:nth-child(2) {
+  max-width: 250px;
+}
+tr td:nth-child(9) {
+  max-width: 100px;
 }

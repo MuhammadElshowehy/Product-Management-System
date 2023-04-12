@@ -23,15 +23,32 @@
         </div>
         <input type="number" placeholder="count" id="count" />
         <input type="text" placeholder="category" id="category" />
-        <button type="submit" id="create">create</button>
+        <button type="submit" id="submit">create</button>
       </section>
       <section class="outputs">
-        <input type="text" placeholder="search" id="search" />
+        <input
+          onkeyup="searchProducts(this.value)"
+          type="text"
+          placeholder="search"
+          id="search"
+        />
         <div class="search-options">
-          <button type="button" id="search-title">search by title</button>
-          <button type="button" id="search-category">search by category</button>
+          <button
+            type="button"
+            onclick="getSearchMode(this.id)"
+            id="search-title"
+          >
+            search by title
+          </button>
+          <button
+            type="button"
+            onclick="getSearchMode(this.id)"
+            id="search-category"
+          >
+            search by category
+          </button>
         </div>
-        <button type="button" id="delete-all">delete all</button>
+        <button type="button" id="delete-all"></button>
         <table>
           <thead>
             <tr>
