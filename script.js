@@ -17,12 +17,13 @@ function getTotal() {
   if (productPrice.value != "") {
     total.innerHTML =
       +productPrice.value + +taxes.value + +ads.value - +discount.value;
-    total.style.backgroundColor = "#1e6fd9";
+    total.style.backgroundColor = "#1F4A6F";
   } else {
     total.innerHTML = "";
-    total.style.backgroundColor = "#94bdf2";
+    total.style.backgroundColor = "#1f4a6f80";
   }
 }
+getTotal(); // to toggle style for total box when website starting
 productPrice.addEventListener("keyup", getTotal);
 taxes.addEventListener("keyup", getTotal);
 ads.addEventListener("keyup", getTotal);
@@ -59,11 +60,11 @@ submit.addEventListener("click", function () {
       // count logic:
       if (product.count > 1) {
         for (let i = 0; i < product.count; i++) {
-          allProducts.unshift(product);
+          allProducts.push(product);
         }
       } else {
         // product.count = 1;
-        allProducts.unshift(product);
+        allProducts.push(product);
       }
     } else {
       allProducts[num] = product;
@@ -182,7 +183,7 @@ function searchProducts(keyWord) {
       if (allProducts[i].productTitle.includes(keyWord.toLowerCase())) {
         table += `
           <tr>
-            <td>${i}</td>
+            <td>${i+1}</td>
             <td>${allProducts[i].productTitle}</td>
             <td>${allProducts[i].productPrice}</td>
             <td>${allProducts[i].taxes}</td>
@@ -200,7 +201,7 @@ function searchProducts(keyWord) {
       if (allProducts[i].category.includes(keyWord.toLowerCase())) {
         table += `
           <tr>
-            <td>${i}</td>
+            <td>${i+1}</td>
             <td>${allProducts[i].productTitle}</td>
             <td>${allProducts[i].productPrice}</td>
             <td>${allProducts[i].taxes}</td>

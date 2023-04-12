@@ -27,7 +27,7 @@ html {
 header {
   text-align: center;
   margin: 10px;
-  color: #0d65d9;
+  color: #1F4A6F;
   letter-spacing: 0.5px;
 }
 input,
@@ -41,7 +41,7 @@ input,
   border-radius: 5px;
 }
 #total {
-  background-color: #94bdf2;
+  background-color: rgb(31, 74, 111);
   color: white;
   display: flex;
   align-items: center;
@@ -64,7 +64,7 @@ input:focus {
 }
 button {
   border: none;
-  background-color: #1e6fd9;
+  background-color: #1F4A6F;
   color: white;
   width: 100%;
   padding: 5px;
@@ -83,7 +83,7 @@ button {
 }
 #delete-all,
 #delete {
-  background-color: red;
+  background-color: #BD0006;
 }
 button:hover {
   background-color: black !important;
@@ -94,20 +94,20 @@ table {
   margin: 20px 0;
   text-align: center;
   border-collapse: collapse;
-  border: 1px solid #0d65d9;
+  border: 1px solid #1F4A6F;
 }
 table tr:nth-child(even) {
   background-color: #dddddd;
 }
 table thead th {
   text-transform: uppercase;
-  color: #0d65d9;
+  color: #1F4A6F;
   background-color: #dddddd;
 }
 th,
 td {
   padding: 5px;
-  border-right: 1px solid #0d65d9;
+  border-right: 1px solid #1F4A6F;
 }
 td,
 #search {
