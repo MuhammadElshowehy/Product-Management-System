@@ -152,6 +152,7 @@ function updateProduct(i) {
   ads.value = allProducts[i].ads;
   discount.value = allProducts[i].discount;
   total.value = allProducts[i].total;
+  count.value = allProducts[i].count;
   getTotal();
   category.value = allProducts[i].category;
   count.style.display = "none";
@@ -183,7 +184,7 @@ function searchProducts(keyWord) {
       if (allProducts[i].productTitle.includes(keyWord.toLowerCase())) {
         table += `
           <tr>
-            <td>${i+1}</td>
+            <td>${i + 1}</td>
             <td>${allProducts[i].productTitle}</td>
             <td>${allProducts[i].productPrice}</td>
             <td>${allProducts[i].taxes}</td>
@@ -201,7 +202,7 @@ function searchProducts(keyWord) {
       if (allProducts[i].category.includes(keyWord.toLowerCase())) {
         table += `
           <tr>
-            <td>${i+1}</td>
+            <td>${i + 1}</td>
             <td>${allProducts[i].productTitle}</td>
             <td>${allProducts[i].productPrice}</td>
             <td>${allProducts[i].taxes}</td>
@@ -220,3 +221,17 @@ function searchProducts(keyWord) {
   document.getElementById("tbody").innerHTML = table;
 }
 /** end search **/
+// go to up button:
+let goUP = document.getElementById("myBtn");
+window.onscroll = function () {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    goUP.style.display = "block";
+  } else {
+    goUP.style.display = "none";
+  }
+};
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+/** The End Of App **/
