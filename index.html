@@ -4,56 +4,86 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product Management System</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Product Management System (PMS)</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <main>
-      <header>
-        <h2>welcome to products management system</h2>
-      </header>
-      <section class="inputs">
-        <input
-          type="text"
-          placeholder="title (req)"
-          id="product-title"
-          autofocus
-        />
-        <div class="price-inputs">
-          <input type="number" placeholder="price (req)" id="product-price" />
-          <input type="number" placeholder="taxes" id="taxes" />
-          <input type="number" placeholder="ads cost" id="ads" />
-          <input type="number" placeholder="discount" id="discount" />
-          <span id="total"></span>
-        </div>
-        <input type="number" placeholder="count (max = 100)" id="count"/>
-        <input type="text" placeholder="category (req)" id="category" />
-        <button type="submit" id="submit">create</button>
-      </section>
-      <section class="outputs">
+    <nav>
+      <div class="left">
+        <h1><a href="#">PMS</a></h1>
+      </div>
+      <div class="right">
         <input
           onkeyup="searchProducts(this.value)"
           type="text"
-          placeholder="search"
+          placeholder="search by title"
           id="search"
         />
-        <div class="search-options">
-          <button
-            type="button"
-            onclick="getSearchMode(this.id)"
-            id="search-title"
-          >
-            search by title
-          </button>
-          <button
-            type="button"
-            onclick="getSearchMode(this.id)"
-            id="search-category"
-          >
-            search by category
-          </button>
+        <button
+          type="button"
+          onclick="getSearchMode(this.id)"
+          id="search-title"
+        >
+          <i class="fa-solid fa-magnifying-glass"></i>title
+        </button>
+        <button
+          type="button"
+          onclick="getSearchMode(this.id)"
+          id="search-category"
+        >
+          <i class="fa-solid fa-magnifying-glass"></i>category
+        </button>
+      </div>
+    </nav>
+    <h2>manage your products easily</h2>
+    <main>
+      <section class="inputs">
+        <div>
+          <label><small>title*</small></label>
+          <input type="text" id="product-title" />
+          <p class="alert"><small>Duplicate product title</small></p>
         </div>
-        <button type="button" id="delete-all"></button>
+        <div class="price-inputs">
+          <div>
+            <label><small>price*</small></label>
+            <input type="number" id="product-price" />
+          </div>
+          <div>
+            <label><small>taxes</small></label>
+            <input type="number" id="taxes" />
+          </div>
+          <div>
+            <label><small>ads</small></label>
+            <input type="number" id="ads" />
+          </div>
+          <div>
+            <label><small>discount</small></label>
+            <input type="number" id="discount" />
+          </div>
+          <div>
+            <label><small>total</small></label>
+            <span id="total"></span>
+          </div>
+        </div>
+        <div>
+          <label><small>count</small></label>
+          <input type="number" id="count" />
+        </div>
+        <div>
+          <label><small>category*</small></label>
+          <input type="text" id="category" />
+        </div>
+        <div class="create-and-empty">
+          <button type="submit" id="submit">create</button>
+          <button type="empty" id="empty">empty inputs</button>
+        </div>
+      </section>
+      <div class="del-and-count">
+        <button type="button" id="products-count"></button>
+        <button type="button" id="delete-all">delete all</button>
+      </div>
+      <section class="outputs">
         <table>
           <thead>
             <tr>
@@ -64,8 +94,8 @@
               <th>ads</th>
               <th>discount</th>
               <th>total</th>
-              <th>count</th>
               <th>category</th>
+              <th>count</th>
               <th>update</th>
               <th>delete</th>
             </tr>
@@ -73,8 +103,13 @@
           <tbody id="tbody"></tbody>
         </table>
       </section>
-      <button onclick="topFunction()" id="myBtn" title="Go to top">Up</button>
+      <i
+        class="fa-solid fa-circle-arrow-up"
+        onclick="topFunction()"
+        id="myBtn"
+        title="Go to top"
+      ></i>
     </main>
-    <script src="script.js"></script>
+    <script src="/js/script.js"></script>
   </body>
 </html>
