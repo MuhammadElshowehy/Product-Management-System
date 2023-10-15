@@ -145,7 +145,14 @@ input:focus {
 #submit,
 #empty {
   width: 150px;
+  margin: 0 2px;
   text-transform: capitalize;
+}
+#cancel {
+  width: 150px;
+  margin: 0 2px;
+  text-transform: capitalize;
+  display: none;
 }
 .create-and-empty,
 .del-and-count {
@@ -224,6 +231,7 @@ td {
 td,
 #search {
   text-transform: lowercase;
+  width: 140px;
 }
 tr td:last-child,
 tr th:last-child {

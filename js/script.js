@@ -8,6 +8,7 @@ let total = document.getElementById("total");
 let count = document.getElementById("count");
 let category = document.getElementById("category");
 let submit = document.getElementById("submit");
+let cancel = document.getElementById("cancel");
 let empty = document.getElementById("empty");
 let productsCount = document.getElementById("products-count");
 let deleteAll = document.getElementById("delete-all");
@@ -74,6 +75,7 @@ submit.addEventListener("click", function () {
       allProducts[num] = product;
       submit.innerHTML = "create";
       mode = "create";
+      cancel.style.display = "none";
     }
     /* end control mode */
     clearInputs();
@@ -95,8 +97,10 @@ function clearInputs() {
 }
 
 // empty inputs button:
-empty.addEventListener("click", clearInputs);
-empty.addEventListener("click", getTotal);
+empty.addEventListener("click", function () {
+  clearInputs();
+  getTotal();
+});
 
 /* 4- start show data: */
 function toggleDeleteAllAndProducts() {
@@ -171,11 +175,21 @@ function updateProduct(i) {
   category.value = allProducts[i].category;
   submit.innerHTML = "update";
   mode = "update";
+  cancel.style.display = "block";
   num = i;
   scrollTo({
     top: 0,
   });
 }
+
+// cancel update:
+cancel.addEventListener("click", function () {
+  mode = "create";
+  submit.innerHTML = "create";
+  cancel.style.display = "none";
+  clearInputs();
+  getTotal();
+});
 
 // plus or minus function:
 function plusOne(num) {
