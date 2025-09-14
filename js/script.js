@@ -43,6 +43,7 @@ if (localStorage.getItem("allProducts") != null) {
 }
 // 2- create & update products:
 submit.addEventListener("click", function () {
+  hj('event', 'create_product');
   let product = {
     productTitle: productTitle.value.toLowerCase(),
     productPrice: productPrice.value,
@@ -159,6 +160,7 @@ function deleteAllProducts() {
   allProducts = [];
   localStorage.removeItem("allProducts");
   showData();
+   hj('event', 'delete_all_products');
 }
 deleteAll.addEventListener("click", deleteAllProducts);
 
