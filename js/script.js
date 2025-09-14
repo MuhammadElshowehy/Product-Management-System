@@ -153,6 +153,7 @@ function deleteProduct(i) {
   allProducts.splice(i, 1);
   localStorage.setItem("allProducts", JSON.stringify(allProducts));
   showData();
+   hj('event', 'delete_single_product');
 }
 
 // 6- delete all products:
