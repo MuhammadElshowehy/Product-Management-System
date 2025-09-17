@@ -16,6 +16,11 @@ let search = document.getElementById("search");
 let mode = "create"; // mode: create or update product.
 let num; // fake var, his value will send from update function To create & update function.
 
+document.addEventListener("DOMContentLoaded", function () {
+  if (typeof hj === "function") {
+    hj('event', 'page_loaded');
+  }
+});
 // 1- get total:
 function getTotal() {
   if (productPrice.value != "") {
@@ -43,7 +48,9 @@ if (localStorage.getItem("allProducts") != null) {
 }
 // 2- create & update products:
 submit.addEventListener("click", function () {
-  hj('event', 'create_product');
+   if (typeof hj === "function") {
+    hj('event', 'create_product');
+  }
   let product = {
     productTitle: productTitle.value.toLowerCase(),
     productPrice: productPrice.value,
@@ -153,7 +160,9 @@ function deleteProduct(i) {
   allProducts.splice(i, 1);
   localStorage.setItem("allProducts", JSON.stringify(allProducts));
   showData();
-   hj('event', 'delete_single_product');
+   if (typeof hj === "function") {
+    hj('event', 'delete_single_product');
+  }
 }
 
 // 6- delete all products:
